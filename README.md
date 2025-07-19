@@ -1,1 +1,1 @@
-# FlexGAussian
+# FlexGaussian
