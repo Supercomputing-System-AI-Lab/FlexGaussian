@@ -13,7 +13,7 @@
 -   Runs **efficiently on both desktop and mobile hardware**
     
 
-### Key Features
+### Key features
 -   **Training-Free**: No retraining or fine-tuning required. Just plug and play.
 -   **Cost-Effective**: Compresses models in under 1 minute on desktops and under 3 minutes on mobile platforms.
 -   **Flexible**: With importance scores computed (a one-time cost), switching compression ratios takes 1–2 seconds.
