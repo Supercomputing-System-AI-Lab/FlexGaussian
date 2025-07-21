@@ -20,8 +20,6 @@ from utils.sh_utils import RGB2SH
 from simple_knn._C import distCUDA2
 from utils.graphics_utils import BasicPointCloud
 from utils.general_utils import strip_symmetric, build_scaling_rotation
-from icecream import ic
-# from vectree.utils import load_vqgaussian, write_ply_data
 
 from utils.quantization_utils import asymmetric_quantize_int4_segment_parallel, asymmetric_quantize_int8_per_segment_parallel, asymmetric_dequantize_int8_per_segment_parallel, asymmetric_dequantize_int4_segment_parallel, asymmetric_dequantize_int2_segment_parallel, asymmetric_quantize_int2_segment_parallel 
 import gc

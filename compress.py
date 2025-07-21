@@ -176,7 +176,7 @@ if __name__ == "__main__":
     args.data_device = "cuda"
     print("[ARGS] Device:", args.data_device)
     print("[ARGS] Input Model Path:", args.model_path)
-    print("[ARGS] :", args.save_render)
+    print("[ARGS] Save Render:", args.save_render)
 
     # Initialize system state (RNG)
     safe_state(args.quiet)
