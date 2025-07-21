@@ -1,6 +1,7 @@
 # FlexGaussian: Flexible and Cost-Effective Training-Free Compression for 3D Gaussian Splatting
 
 <p align="center">
+<a href="https://acmmm2025.org"><img src="https://img.shields.io/badge/ACM MM-2025-FF6600.svg"></a>
 <a href="https://arxiv.org/abs/2507.06671"><img src="https://img.shields.io/badge/Arxiv-2507.06671-B31B1B.svg"></a>
 <a href="https://supercomputing-system-ai-lab.github.io/projects/flexgaussian/"><img src="https://img.shields.io/badge/Project-Page-048C3D"></a>
 </p>
@@ -15,9 +16,10 @@
 ### Key Features
 -   **Training-Free**: No retraining or fine-tuning required. Just plug and play.
 -   **Cost-Effective**: Compresses models in under 1 minute on desktops and under 3 minutes on mobile platforms.
--   **Flexible**: With importance scores calculated (a one-time cost), switching to different compression ratio takes  1–2 sec.
+-   **Flexible**: With importance scores computed (a one-time cost), switching compression ratios takes 1–2 seconds.
 
 # Installation
+We tested on both desktop and mobile platforms using Ubuntu 20.04, CUDA 11.6, PyTorch 1.12.1, and Python 3.7.13.
 ### Install dependencies
 ```
 # clone the repo
@@ -36,12 +38,13 @@ $ conda activate FlexGaussian
 	-  `model_path`: path to the pre-trained 3DGS model
 	- `imp_score_path (optional)`: path to precomputed importance score in `.npz` format.
 
-# Data sources
+# Data preparation
 ### Datasets
 - We have tested on Mip-NeRF360, DeepBlending, and Tanks&Temples.
 - The Mip-NeRF360 scenes are hosted by the paper authors [here](https://jonbarron.info/mipnerf360/).
 - We use the Tanks&Temples and Deep Blending scenes hosted by the paper authors of 3DGS [here](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/datasets/input/tandt_db.zip).
 - Note that while both training and test views are loaded, **importance score computation does not rely on image content**. It evaluates each 3D Gaussian's contribution by counting how many pixels it overlaps with across a view set (we use training views for simplicity, but any camera poses would work).
+- The render resolution should match the training resolution.
 
 ### Pre-trained 3DGS model
 - To ensure consistency and reproducibility, we use pre-trained 3DGS models released by the official 3DGS repository.
@@ -100,7 +103,9 @@ Best combination found: pruning=0.4, sh=0.5
 ```
 
 # Test devices
-We tested on both desktop and mobile platforms using Ubuntu 20.04, CUDA 11.6, PyTorch 1.12.1.
+We tested on both desktop and mobile platforms using Ubuntu 20.04, CUDA 11.6, PyTorch 1.12.1, and Python 3.7.13.
+**Performance may vary based on the library versions and sources of precompiled binaries.*
+
 -   **Desktop**:
     -   GPU: Nvidia RTX 3090 (10496-cores Ampere arch)
     -   CPU: Intel Core i9-10900K (10-cores)
@@ -109,6 +114,7 @@ We tested on both desktop and mobile platforms using Ubuntu 20.04, CUDA 11.6, Py
     -   GPU: GV10B (512-cores Volta arch)
     -   CPU: Nvidia Carmel ARM v8 (8-cores)
     -   RAM: 16 GB Unified Memory (shared CPU/GPU)
+
 
 # BibTeX
 ```
@@ -122,4 +128,4 @@ We tested on both desktop and mobile platforms using Ubuntu 20.04, CUDA 11.6, Py
 # Acknowledgement
 
 -   Thanks to the authors of [3D Gaussian Splatting](https://github.com/graphdeco-inria/gaussian-splatting) for their foundational work.
--   We also acknowledge the authors of [LightGaussian](https://lightgaussian.github.io/) for presenting such an excellent work.
+-   We also acknowledge the authors of [LightGaussian](https://lightgaussian.github.io/) for their method of calculating importance scores.
